@@ -1,0 +1,21 @@
+name: flutter_twitch_player
+description: Flutter package for playing twitch streams.
+version: 0.0.2
+homepage: https://github.com/OntwerpLLC/flutter_twitch_player
+
+environment:
+  sdk: ">=2.15.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_inappwebview: ^5.3.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+flutter:
