@@ -29,8 +29,7 @@ class _TwitchPlayerState extends State<TwitchPlayer> {
       child: ClipRRect(
         borderRadius: widget.borderRadius ?? BorderRadius.zero,
         child: GestureDetector(
-          child: InAppWebView(
-          ),
+          child: const InAppWebView(),
         ),
       ),
     );
