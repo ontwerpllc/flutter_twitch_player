@@ -30,8 +30,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  TwitchController twitchController = TwitchController();
   @override
   Widget build(BuildContext context) {
+    twitchController.onEnterFullscreen(() => print("Entered fullscreen"));
+    twitchController.onExitFullscreen(() => print("Exited fullscreen"));
+    twitchController.onStateChanged((state) => print(state));
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -42,6 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: const EdgeInsets.all(16),
             child: TwitchPlayerIFrame(
+              controller: twitchController,
               channel: "ray__c",
               borderRadius: BorderRadius.circular(6),
             ),

@@ -25,11 +25,21 @@ defaultConfig {
 }
 ```
 
+Update distributionUrl in `android/gradle/gradle-wrapper.properties`
+
+```gradle
+distributionUrl=https\://services.gradle.org/distributions/gradle-7.0.2-all.zip
+```
+
 ## Usage
 
 ```dart
 TwitchPlayerIFrame(channel: "channel name")
 ```
+
+## TODO
+
+-Add more functionality [play, pause, fullscreen, mute]
 
 ## Additional information
 
