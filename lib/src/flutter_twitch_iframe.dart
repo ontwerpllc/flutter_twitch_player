@@ -10,8 +10,7 @@ class TwitchPlayerIFrame extends StatefulWidget {
     required this.channel,
     required this.controller,
     this.parent = "twitch.tv",
-    this.volume = 1.0,
-    this.muted = false,
+    this.autoplay = true,
     this.borderRadius,
   }) : super(key: key);
 
@@ -25,10 +24,16 @@ class TwitchPlayerIFrame extends StatefulWidget {
   final String parent;
 
   /// Starting volume
-  final double volume;
+  // final double volume;
 
-  /// Start muted?
-  final bool muted;
+  // /// Start muted?
+  // final bool muted;
+
+  /// Autoplay the video
+  final bool autoplay;
+
+  /// Autoplay the video
+  // final bool fullscreen;
 
   /// Border radius if desired
   final BorderRadius? borderRadius;
@@ -39,6 +44,7 @@ class TwitchPlayerIFrame extends StatefulWidget {
 
 class _TwitchPlayerIFrameState extends State<TwitchPlayerIFrame> {
   late InAppWebViewController inAppWebViewController;
+
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -60,13 +66,26 @@ class _TwitchPlayerIFrameState extends State<TwitchPlayerIFrame> {
           onExitFullscreen: (_) => widget.controller.exitFullscreen(),
           onLoadStart: (controller, __) => {
             inAppWebViewController = controller,
+            inAppWebViewController.addUserScript(
+              userScript: UserScript(source: """
+                async function wait() {
+                  while(!document.getElementsByClassName('ScLoadingSpinnerCircle-sc-qd487d-1')[0]) {
+                    await new Promise(r => setTimeout(r, 500));
+                  }
+                  while(document.getElementsByClassName('ScLoadingSpinnerCircle-sc-qd487d-1')[0]) {
+                    await new Promise(r => setTimeout(r, 500));
+                  }
+                  ${widget.autoplay ? """""" : """document.querySelector('[data-a-target="player-play-pause-button"]').click();"""}
+                }
+                wait();
+              """, injectionTime: UserScriptInjectionTime.AT_DOCUMENT_END),
+            ),
             widget.controller.updateState(TwitchState.loading),
           },
           onLoadStop: (_, __) => {
             widget.controller.updateState(TwitchState.done),
           },
-          onLoadError: (_, __, ___, ____) =>
-              widget.controller.updateState(TwitchState.error),
+          onLoadError: (_, __, ___, ____) => widget.controller.updateState(TwitchState.error),
         ),
       ),
     );

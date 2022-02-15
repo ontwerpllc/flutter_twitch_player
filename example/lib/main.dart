@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.all(16),
             child: TwitchPlayerIFrame(
               controller: twitchController,
-              channel: "ray__c",
+              channel: "fextralife",
               borderRadius: BorderRadius.circular(6),
             ),
           ),
