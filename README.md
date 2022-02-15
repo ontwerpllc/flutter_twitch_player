@@ -1,10 +1,8 @@
 # Flutter Twitch Player
 
+![picture alt](https://variety.com/wp-content/uploads/2015/03/twitch-logo.jpg?w=636 "Title is optional")
+
 A flutter plugin that plays twitch live streams using InAppWebview under the hood.
-
-## Features
-
-Plays twitch streams inline
 
 ## Getting started
 
@@ -22,24 +20,30 @@ Update minSDK to 17 in `android/app/build.gradle`
 ```gradle
 defaultConfig {
     minSdkVersion 17
+    ...
 }
 ```
 
 Update distributionUrl in `android/gradle/gradle-wrapper.properties`
 
 ```gradle
+...
 distributionUrl=https\://services.gradle.org/distributions/gradle-7.0.2-all.zip
 ```
 
 ## Usage
 
 ```dart
-TwitchPlayerIFrame(channel: "channel name")
+TwitchPlayerIFrame(channel: "channel name", controller: TwitchController())
 ```
 
 ## TODO
 
--Add more functionality [play, pause, fullscreen, mute]
+- play
+- pause
+- mute
+- unmute
+- fullscreen
 
 ## Additional information
 
