@@ -1,5 +1,6 @@
-## 0.1.1
+## 0.1.3
 
+- Added autoplay param
 - Added a controller class
 - Update README
 

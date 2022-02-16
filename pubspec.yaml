@@ -1,6 +1,6 @@
 name: flutter_twitch_player
 description: Flutter package for playing twitch streams. This package uses InAppWebview under the hood to play & display the video.
-version: 0.1.1
+version: 0.1.3
 homepage: https://github.com/OntwerpLLC/flutter_twitch_player
 
 environment:
