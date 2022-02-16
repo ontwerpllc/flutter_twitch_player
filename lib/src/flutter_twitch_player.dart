@@ -76,7 +76,8 @@ class _TwitchPlayerIFrameState extends State<TwitchPlayerIFrame> {
           onLoadStop: (_, __) => {
             widget.controller.updateState(TwitchState.done),
           },
-          onLoadError: (_, __, ___, ____) => widget.controller.updateState(TwitchState.error),
+          onLoadError: (_, __, ___, ____) =>
+              widget.controller.updateState(TwitchState.error),
         ),
       ),
     );
