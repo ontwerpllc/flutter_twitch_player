@@ -1,5 +1,3 @@
-import 'package:flutter/services.dart';
-
 class TwitchController {
   /// Twitch Video Player Controller
   bool isFullscreen = false;
@@ -22,10 +20,6 @@ class TwitchController {
 
   void enterFullscreen() async {
     isFullscreen = true;
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeRight,
-      DeviceOrientation.landscapeLeft,
-    ]);
     if (_onEnterFullscreenFunction != null) {
       _onEnterFullscreenFunction?.call();
     }
@@ -33,12 +27,6 @@ class TwitchController {
 
   void exitFullscreen() async {
     isFullscreen = false;
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitDown,
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.landscapeRight,
-      DeviceOrientation.landscapeLeft,
-    ]);
     if (_onExitFullscreenFunction != null) {
       _onExitFullscreenFunction?.call();
     }
