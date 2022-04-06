@@ -25,7 +25,7 @@ defaultConfig {
 Update distributionUrl in `android/gradle/gradle-wrapper.properties`
 
 ```gradle
-distributionUrl=https\://services.gradle.org/distributions/gradle-7.0.2-all.zip
+distributionUrl=https/://services.gradle.org/distributions/gradle-7.0.2-all.zip
 ```
 
 ## Usage
